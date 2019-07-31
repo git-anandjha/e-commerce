@@ -34,7 +34,6 @@ router.post('/',upload.single('myImage'),(req,res)=>{
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString('base64');
     // console.log(req.file);
-
     var image=new images
     // image.contentType=req.file.mimetype
     image.image.data=encode_image

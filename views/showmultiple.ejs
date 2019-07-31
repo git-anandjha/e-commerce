@@ -5,6 +5,9 @@
         <title>photo</title>
     </head>
     <body>
-        <% <img src="photo:image/jpeg;base64{binary data}" alt=""> %>
+        <% result.forEach((photo)=>{%>
+
+                <img src="data:image/jpeg;base64,<%= photo %>" height="400" width="300">
+        <%})%>
     </body>
 </html>
