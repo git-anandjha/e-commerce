@@ -17,11 +17,14 @@ router.get('/',(req,res)=>{
             const bufferarray=[]
             dbo.collection('images').find().forEach(function(myDoc){
                 const dataphoto=myDoc.image.data.buffer.toString('ascii')
+                const name=myDoc.name
+                console.log(name);
                 bufferarray.push(dataphoto)
+                anand='anand'
                 resolve(bufferarray)
             })
         })
-        promiseconst.then((result)=>{
+        promiseconst.then((result,anand)=>{
             res.render('showmultiple.ejs',{result:result});
             console.log(result.length)
         })
