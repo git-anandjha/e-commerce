@@ -15,18 +15,22 @@ router.get('/',(req,res)=>{
         var dbo=db.db('imgphotoecom')
         const promiseconst = new Promise(function(resolve, reject) {
             const bufferarray=[]
+            const namearray=[]
             dbo.collection('images').find().forEach(function(myDoc){
                 const dataphoto=myDoc.image.data.buffer.toString('ascii')
                 const name=myDoc.name
                 console.log(name);
+                namearray.push(name)
                 bufferarray.push(dataphoto)
-                anand='anand'
                 resolve(bufferarray)
+                console.log(namearray);
+
             })
         })
         promiseconst.then((result,anand)=>{
+            // console.log(namearray);
             res.render('showmultiple.ejs',{result:result});
-            console.log(result.length)
+            console.log("number of results obtained= "+result.length)
         })
     })
 })
